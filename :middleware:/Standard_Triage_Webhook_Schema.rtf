@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh17280\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \{\
+  "$schema": "http://json-schema.org/draft-07/schema#",\
+  "title": "StandardTriageWebhookPayload",\
+  "type": "object",\
+  "required": [\
+    "popia_consent",\
+    "PatientName",\
+    "PatientID",\
+    "DOB",\
+    "PatientEmail",\
+    "PatientNumber",\
+    "payment_type_choice",\
+    "MedAidProvider",\
+    "symptoms",\
+    "triage_status",\
+    "AppointmentDate",\
+    "timestamp",\
+    "PatientAddress",\
+    "EmergencyContactName",\
+    "EmergencyContactNumber"\
+  ],\
+  "properties": \{\
+    "popia_consent": \{\
+      "type": "string",\
+      "enum": ["true", "false"],\
+      "description": "POPIA privacy consent confirmation status",\
+      "example": "true"\
+    \},\
+    "PatientName": \{\
+      "type": "string",\
+      "minLength": 2,\
+      "description": "Full legal name of the patient",\
+      "example": "Sipho Nene"\
+    \},\
+    "PatientID": \{\
+      "type": "string",\
+      "pattern": "^\\\\d\{13\}$",\
+      "description": "13-digit South African Identity Number (Luhn-validated)",\
+      "example": "9501015000080"\
+    \},\
+    "DOB": \{\
+      "type": "string",\
+      "description": "Date of birth extracted from composite bag entity",\
+      "example": "1995-01-01"\
+    \},\
+    "PatientEmail": \{\
+      "type": "string",\
+      "format": "email",\
+      "description": "Valid email address for appointment confirmation dispatches",\
+      "example": "sipho.nene@example.com"\
+    \},\
+    "PatientNumber": \{\
+      "type": "string",\
+      "pattern": "^0[6-8]\\\\d\{8\}$",\
+      "description": "10-digit South African mobile phone number",\
+      "example": "0712345678"\
+    \},\
+    "payment_type_choice": \{\
+      "type": "string",\
+      "description": "Selected payment method (e.g., Cash, Medical Aid, Student Account)",\
+      "example": "Medical Aid"\
+    \},\
+    "MedAidProvider": \{\
+      "type": "string",\
+      "description": "Name of the medical aid scheme or provider (if applicable, else empty string)",\
+      "example": "Discovery Health"\
+    \},\
+    "symptoms": \{\
+      "type": "string",\
+      "description": "Patient-described non-emergency symptoms",\
+      "example": "Routine checkup and persistent mild cough"\
+    \},\
+    "triage_status": \{\
+      "type": "string",\
+      "enum": ["STANDARD"],\
+      "description": "Classification assigned to standard intake routes",\
+      "example": "STANDARD"\
+    \},\
+    "AppointmentDate": \{\
+      "type": "string",\
+      "description": "Formatted date and time string of the booked clinic slot",\
+      "example": "2026-11-15 at 10:00 AM"\
+    \},\
+    "timestamp": \{\
+      "type": "string",\
+      "pattern": "^\\\\d\{4\}-\\\\d\{2\}-\\\\d\{2\} \\\\d\{2\}:\\\\d\{2\}:\\\\d\{2\}$",\
+      "description": "System execution timestamp (yyyy-MM-dd HH:mm:ss SAST)",\
+      "example": "2026-11-10 20:23:00"\
+    \},\
+    "PatientAddress": \{\
+      "type": "string",\
+      "description": "Physical residential address or UWC residence building",\
+      "example": "Hector Peterson Residence, UWC Main Campus"\
+    \},\
+    "EmergencyContactName": \{\
+      "type": "string",\
+      "description": "Full name of the designated emergency contact person",\
+      "example": "Thandi Nene"\
+    \},\
+    "EmergencyContactNumber": \{\
+      "type": "string",\
+      "pattern": "^0[6-8]\\\\d\{8\}$",\
+      "description": "10-digit contact phone number for the emergency contact person",\
+      "example": "0829876543"\
+    \}\
+  \}\
+\}\
+}
